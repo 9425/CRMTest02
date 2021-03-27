@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--此处的namespace：
+    用来的对不同的mapper进行区分，不同的mapper映射文件使用namespace进行区分，
+    不能够出现重复
+
+    要执行sql语句时：使用命名空间.sqlId的形式来找到我们想要执行的sql语句
+    test1.getById
+
+ -->
+<mapper namespace="test1">
+    <!--
+    sql语句必须要写在相应的标签中
+    <insert>:在标签中写insert开头的sql语句，处理添加操作
+    <update>:在标签中对update开头的sql语句，处理修改操作
+    <delete>:在标签中对delete开头的sql语句，处理删除操作
+    <select>:在标签对中写select开头的sql语句，处理查询操作
+    parameterType:为sql语句传递的参数类型
+    -->
+    <select id="getById01" parameterType="java.lang.String" resultType="domain.Student">
+          select * from tbl_student where id=#{id}
+    </select>
+</mapper>
